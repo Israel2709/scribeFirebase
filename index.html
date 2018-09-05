@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>KodeDay White</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<form action="" class="custom-form">
+						<h1>Crear colección</h1>
+						<div class="form-group">
+							<label for="">Nombre:</label>
+							<input id="collection-name" class="form-control" type="text">
+						</div>
+						<div class="form-group">
+							<img id="image-preview" src="" alt="" >
+							<label for="exampleFormControlFile1">portada:</label>
+							<input id="collection-img" class="form-control-file" onchange="getCollectionPreview(this)"type="file">
+						</div>
+						<div id="submit-button" class="btn btn-primary" onclick="uploadCollection()">Enviar</div>
+						<img id="uploaded-img" src="" alt="">
+					</form>
+				</div>
+				<div class="col-sm-4 offset-sm-2">
+					<form action="" class="custom-form">
+						<h1>Cargar Libretas</h1>
+						<div class="form-group">
+							<label for="">Nombre:</label>
+							<input id="notebook-name" class="form-control" type="text">
+						</div>
+						<div class="form-group">
+							<img class="notebook-preview" src="" alt="" >
+							<label for="exampleFormControlFile1">Portada:</label>
+							<input id="notebook-img" class="form-control-file" onchange="getNotebookPreview(this)" type="file" multiple>
+						</div>
+						<div class="previews-wrapper">
+							<div class="row">
+								
+							</div>
+						</div>
+						<img class="notebook-cover" src="" alt="">
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyAraWsgOdgoNgdg8SNPjUVqrn0btceMq5c",
+		    authDomain: "scribeadmin-8952f.firebaseapp.com",
+		    databaseURL: "https://scribeadmin-8952f.firebaseio.com",
+		    projectId: "scribeadmin-8952f",
+		    storageBucket: "scribeadmin-8952f.appspot.com",
+		    messagingSenderId: "436243616900"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

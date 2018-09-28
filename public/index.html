@@ -1,0 +1,37 @@
+<!doctype html> <html> <head> <meta charset="utf-8"> <title>Scribe</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/main.b516d9f5.css"> </head> <body ng-app="scribeApp"> <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <!-- Add your site or application content here --> <div class="header"> </div> <div class="container main-container"> <div ng-view=""></div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apng-canvas/2.1.1/apng-canvas.min.js"></script>
+    <script src="https://cdn.uriit.ru//jsPDF/libs/png_support/zlib.js"></script>
+    <script src="https://cdn.uriit.ru//jsPDF/libs/png_support/png.js"></script>
+<!--     <script src="https://cdn.uriit.ru//jsPDF/jspdf.js"></script> -->
+    <script src="http://research.ng-london.org.uk/ng/js/jsPDF/jspdf.plugin.addimage.js"></script>
+    <script src="https://cdn.uriit.ru/jsPDF/jspdf.plugin.png_support.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.2/js/tableexport.min.js"></script>
+    
+
+
+
+
+    
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAraWsgOdgoNgdg8SNPjUVqrn0btceMq5c",
+            authDomain: "scribeadmin-8952f.firebaseapp.com",
+            databaseURL: "https://scribeadmin-8952f.firebaseio.com",
+            projectId: "scribeadmin-8952f",
+            storageBucket: "scribeadmin-8952f.appspot.com",
+            messagingSenderId: "436243616900"
+          };
+          firebase.initializeApp(config);
+        </script><script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');</script> <script src="scripts/vendor.60fc9887.js"></script> <script src="scripts/scripts.51c29aed.js"></script> </body> </html>

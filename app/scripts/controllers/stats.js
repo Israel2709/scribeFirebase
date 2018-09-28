@@ -124,22 +124,16 @@ angular.module('scribeApp')
         }
 
 
-         $scope.exportToPDF = function() {
- 
-
-                   html2canvas($("#Imprimeaqui"), {
-                        background: "#ffffff",
-                        onrendered: function(canvas) {
-                            var myImage = canvas.toDataURL('image/jpeg', 1.0);
-                            var imgWidth = (canvas.width * 25.4) / 240;
-                            var imgHeight = (canvas.height * 25.4) / 240; 
-                            var table = new jsPDF('p', 'mm', 'a4');
-                            table.addImage(myImage, 'JPEG', 15, 2, imgWidth, imgHeight); // 2: 19
-                            table.save('Statistiques.pdf');
-                        }
-                    });
-
-       }
+    $scope.exportToPDF = function() {
+        html2canvas($("#dvData"), {
+            onrendered: function(canvas) {
+                var imgData = canvas.toDataURL('image/jpeg');
+                var doc = new jsPDF('p', 'mm');
+                doc.addImage(imgData, 'jpeg', 20, 10, 110, 60);
+                doc.save('Estadisticas.pdf');
+            }
+        });
+    }
 
         $scope.exportToExcel = function(e) {
            /* $("#dvData").tableExport({

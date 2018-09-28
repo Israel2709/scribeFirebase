@@ -1,0 +1,174 @@
+<div class="full-overlay hidden">
+	<img src="images/preloader.gif" alt="" class="center-block">
+</div>
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-1 col-sm-2">
+			<div class="menu-box">
+				<div class="icon-box">
+					<img src="images/scribe-logo.svg" class="img-logo" alt="">
+				</div>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="#/admin">
+							<span class="ico collect"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#/newnotebook">
+							<span class="ico notes"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#/stats">
+							<span class="ico stat"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#/config">
+							<span class="ico settings"></span>
+						</a>
+					</li>
+				</ul>
+				<div class="exit-box">
+					<a class="nav-link" href="#/loginAdmin">
+						<span class="exit"></span>
+					</a>
+					<div class="termins">
+						<a target="_blank" href="http://www.scribe.com.mx/aviso-de-privacidad/" >© Terminos y condiciones</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-md-11 col-sm-10">
+			<div class="notebooks-wrapper section">
+				<div class="row marginL0">
+					<div class="col-md-3 col-sm-5 paddingLess">
+						<p class="title-admin">Libretas</p>
+					</div>
+				</div>
+				<div class="row marginL0">
+					<p class="light-text">DAR DE ALTA UNA NUEVA LIBRETA</p>
+					<div class="col-md-3 col-sm-6 paddingLess">
+						<select class="selectpicker general-input capitalize" data-ng-model="selectedCollection" data-ng-change="setCollection(selectedCollection); removeDisabled()">
+							<option class="selected">Colecciones</option>
+							<option ng-repeat="collection in collectionsList" id="{{collection.id}}"  ng-value="{{collection.id}}">{{collection.name}}</option>
+						</select>
+					</div>
+					<div class="col-md-3 col-sm-5">
+						<input type="text" placeholder="Nombre" id="nombre"  ng-keyup="removeDisabled()" class="general-input" data-ng-model="notebookObject.name">
+					</div>
+<!-- 					<div class="col-md-5 col-sm-12">
+						<input type="text" placeholder="Descripción" ng-keyup="removeDisabled()" id="descripcion" class="general-input" data-ng-model="notebookObject.descripcion">
+					</div> -->
+					<div class="col-md-3 col-sm-6 submit-notebook paddingLess">
+						<div class="fileUpload btn btn-gray" ng-click="openFileDialog('#fileupload')">
+							<span>+ Imagen de portada</span>
+						</div>
+						<div>
+							<input id="fileupload" type="file" name="files" class="hidden" accept="image/*" onchange="angular.element(this).scope().readURL(this)">
+						</div>
+					</div>
+<!-- 					<div class="col-md-3 col-sm-4 marginT20">
+						<div class="fileUpload btn btn-gray" ng-click="openFileDialog('#fileupload2')">
+							<span>+ Imagen del detalle</span>
+						</div>
+						<div>
+							<input id="fileupload2" type="file" name="files[]" class="hidden" accept="image/*" multiple onchange="angular.element(this).scope().readURL(this, '#img_prev2')">
+						</div>
+						
+					</div> -->
+					<div class="col-sm-12 marginT20 paddingLess">
+						<button type="submit"  class="btn btn-allred" disabled="true" id="submit-notes" data-ng-click="uploadNotebook()">Cargar</button>
+					</div>
+					<div class="col-md-4 col-sm-10">
+						<img id="img_prev" src="#" alt="your image"  class="hidden view-image margins"/>
+						<!-- <img id="img_prev2" src="#" alt="your image"  class="hidden view-image margins"/> -->
+					</div>
+				</div>
+				<div class="row marginL0">
+					<div class="heading">
+						<p>Cargar Libreta /<span class="text-bold note-selected capitalize"></span></p>
+						<span class="select"></span>
+					</div>
+					<div class="collection-list no-top">
+						<div class="col-md-2 col-sm-4 list-box" data-coleccion="{{notebooks.collection}}" data-id="{{notebooks.id}}" data-nombre="{{notebooks.name}}" data-ng-repeat="notebooks in collectionNotebooks">
+							<img data-ng-src="https://luisvardez.000webhostapp.com/{{notebooks.coverSource}}" value="{{notebooks.id}}" onclick="angular.element(this).scope().optionNotes(this)" alt="">
+							<h1 class="title-note">{{notebooks.name}}</h1>
+						</div>
+					</div>
+					<div id="dvData" class="hidden">
+						<p class="title"></p>
+						<table>
+							<thead>
+								<tr>
+									<th class="title"></th>
+								</tr>
+								<tr>
+									<th colspan="2">Libreta</th>
+									<th colspan="2">Descripción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr data-ng-repeat="notebooks in collectionNotebooks">
+									<td colspan="2">{{notebooks.name}}</td>
+									<td colspan="2">{{notebooks.descripcion}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- MODAL NUEVA LIBRETA -->
+<div class="modal fade" id="submitCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">NUEVA LIBRETA</h5>
+      </div>
+      <div class="modal-body">
+        <p>Cargada exitósamente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL OPCIONES DELETE -->
+<div class="modal fade" id="options" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR LIBRETA</h5>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea eliminar la libreta?</p>
+        <div class="row">
+        	<div class="col-sm-6">
+	        	 <button type="submit" class="btn btn-allred yes" ng-click="deleteNotebooks()">Sí</button>
+	        </div>
+	        <div class="col-sm-6">
+	        	<button type="submit" class="btn btn-allred no" data-dismiss="modal" aria-label="Close">No</button>
+	        </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ELIMINAR LIBRETA -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR LIBRETA</h5>
+      </div>
+      <div class="modal-body">
+        <p>La libreta ha sido eliminada exitósamente.</p>
+      </div>
+    </div>
+  </div>
+</div>

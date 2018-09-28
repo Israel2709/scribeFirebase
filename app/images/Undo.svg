@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Undo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="40" cy="40" r="40"></circle>
+        <filter x="-5.0%" y="-2.5%" width="110.0%" height="110.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="03_inicio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-342.000000, -905.000000)">
+        <g id="Buttons" transform="translate(344.000000, 905.000000)">
+            <g id="Undo">
+                <g id="Oval">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <path d="M57.0328239,33.371104 C56.755157,32.831042 55.4009759,31.5929257 53.1167498,32.7170598 C50.8323848,33.8413328 51.9366658,36.3099297 51.9366658,36.3099297 C52.7879923,38.0561763 53.2669676,40.016643 53.2669676,42.0905365 C53.2669676,49.3792906 47.3583564,55.2879018 40.0690469,55.2879018 C32.7814034,55.2879018 26.8722368,49.3792906 26.8722368,42.0905365 C26.8722368,35.2686791 32.0482241,29.6573102 38.6850166,28.9653645 L38.6850166,32.3858033 C38.6850166,32.3858033 38.6758536,32.5896107 38.8878522,32.7187258 C39.0999897,32.8478409 39.3119883,32.7187258 39.3119883,32.7187258 L50.2608077,26.2678313 C50.2608077,26.2678313 50.5059875,26.1388551 50.5059875,25.8860394 C50.5059875,25.6777893 50.2608077,25.5303482 50.2608077,25.5303482 L39.3483626,19.1152727 C39.3483626,19.1152727 39.0999897,18.9372883 38.8786892,19.0236427 C38.6579441,19.1098582 38.6850166,19.4102937 38.6850166,19.4102937 L38.6850166,23.0746628 C28.8002164,23.784518 21,32.0228927 21,42.0905365 C21,52.6223003 29.5378384,61.1599998 40.0690469,61.1599998 C50.601366,61.1599998 59.1401762,52.6223003 59.1401762,42.0905365 C59.1401762,38.9477645 58.3793691,35.9840877 57.0328239,33.371104 Z" id="Fill-2" fill="#4A90E2" transform="translate(40.070088, 40.080000) scale(-1, 1) translate(-40.070088, -40.080000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

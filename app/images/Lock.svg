@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="24px" viewBox="0 0 17 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Scribe-Dashboards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-opacity="0.35">
+        <g id="01_Login" transform="translate(-600.000000, -464.000000)" stroke="#6E6E6E" stroke-width="2">
+            <g id="Pass" transform="translate(570.000000, 449.000000)">
+                <g id="Lock" transform="translate(31.000000, 16.000000)">
+                    <ellipse id="Oval" cx="7.32593315" cy="13.6164428" rx="1" ry="1"></ellipse>
+                    <rect id="Rectangle-path" x="0" y="8.83228722" width="14.6518663" height="12.5124069"></rect>
+                    <path d="M12.4540864,8.83228722 L12.4540864,5.52017951 C12.4540864,2.70120784 10.2563064,0 7.32593315,0 C4.39555989,0 2.19777995,2.70120784 2.19777995,5.52017951 L2.19777995,8.83228722" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,129 @@
+<div class="full-overlay hidden">
+	<img src="images/preloader.gif" alt="" class="center-block">
+</div>
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-1 col-sm-2">
+			<div class="menu-box">
+				<div class="icon-box">
+					<img src="images/scribe-logo.svg" class="img-logo" alt="">
+				</div>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="#/admin">
+							<span class="ico collect"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#/stats">
+							<span class="ico stat"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#/config">
+							<span class="ico settings"></span>
+						</a>
+					</li>
+				</ul>
+				<div class="exit-box">
+					<a class="nav-link" href="#/loginAdmin">
+						<span class="exit"></span>
+					</a>
+					<div class="termins admin-link">
+						<a target="_blank" href="http://www.scribe.com.mx/aviso-de-privacidad/" >© Terminos y condiciones </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-11 col-sm-10">
+			<div class="config-wrapper">
+				<div class="row marginL0">
+					<div class="col-md-3 col-sm-5">
+						<p class="title-admin">Configuración</p>
+						<p class="light-text">MIS DATOS</p>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-md-3 col-sm-4">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<a class="nav-link menu2 active" href="">Editar perfil</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-9 col-sm-8">
+						<div class="edit">
+							<div class="row">
+								<div class="edit-box">
+									<div class="col-sm-12"><p>Editar usuario</p></div>
+									<div class="col-md-4">
+										<input type="text" id="name" ng-keyup="removeDisabled()" class="general-input">
+									</div>
+									<div class="col-sm-12"><p>Editar contraseña</p></div>
+									<div class="col-md-4">
+										<input type="text" data-ng-model="pass" id="old-pass"  ng-keyup="removeDisabled()" placeholder="Contraseña anterior" class="general-input">
+									</div>
+									<div class="col-md-4">
+										<input type="text" id="new-pass" placeholder="Nueva contraseña"  ng-keyup="removeDisabled()"  class="general-input">
+									</div>
+									<div class="col-md-4">
+										<input type="text" id="confirm-pass" ng-keyup="removeDisabled()" placeholder="Confirmar nueva contraseña" class="general-input">
+									</div>
+									<div class="col-md-4">
+										<span class="text-danger enter hidden"></span>
+										<button type="submit" ng-click="changeProfile()" id="change-profile" disabled="true" class="btn btn-allred">Realizar cambios</button>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+<!-- 						<div class="password">
+							<div class="col-sm-3">
+								<p class="text-right">Contraseña anterior</p>
+								<p class="text-right">Contraseña nueva</p>
+								<p class="text-right">Confirmar contraseña nueva</p>
+							</div>
+							<div class="col-sm-9">
+								<input type="text" data-ng-model="pass" id="old-pass" class="general-input">
+								<input type="text" id="new-pass"  class="general-input">
+								<input type="text" id="confirm-pass" class="general-input">
+								<button type="submit" ng-click="changePassword()" id="password-button" class="btn btn-allred">Cambiar contraseña</button>
+							</div>
+						</div> -->
+<!-- 						<div class="info">
+							<div class="col-sm-2">
+								<div class="form-check squaredFour">
+									<label class="form-check-label">
+										<input type="checkbox" ng-click="checking('#squaredFour1')" class="form-check-input" value="None" id="squaredFour1" name="check" >
+									</label>
+									
+								</div>
+								<div class="form-check squaredFour">
+									<label class="form-check-label">
+										<input type="checkbox" ng-click="checking('#squaredFour2')"  class="form-check-input" value="None" id="squaredFour2" name="check" >
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-10">
+								<p class="text-info">Correos electrónicos de noticias<br/>Conoce antes que nadie los nuevos productos</p>
+								<p class="text-info">Mensajes de Texto (SMS)<br/>Recibe notificaciones de recordatorios por mensaje de texto</p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="submitCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EDITAR PERFIL</h5>
+      </div>
+      <div class="modal-body">
+        <p>Su información ha sido modificada.</p>
+      </div>
+    </div>
+  </div>
+</div>

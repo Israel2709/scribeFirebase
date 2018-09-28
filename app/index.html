@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scribe</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="scribeApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+    </div>
+
+    <div class="container main-container">
+    <div ng-view=""></div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/backand-vanilla-sdk/dist/backand.js"></script>
+    <script src="bower_components/backand-angular1-sdk/dist/backand.provider.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/jquery-table2excel/src/jquery.table2excel.js"></script>
+    <!-- endbower -->
+    <!-- endbuild --> 
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/jquery.transform2d.js"></script>
+    <script src="scripts/jquery.swipe.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/uploadform.js"></script>
+    <script src="scripts/controllers/swipe.js"></script>
+    <script src="scripts/controllers/finish.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/newnotebook.js"></script>
+    <script src="scripts/controllers/stats.js"></script>
+    <script src="scripts/controllers/loginadmin.js"></script>
+    <script src="scripts/controllers/config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script> -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apng-canvas/2.1.1/apng-canvas.min.js"></script>
+    <script src="https://cdn.uriit.ru//jsPDF/libs/png_support/zlib.js"></script>
+    <script src="https://cdn.uriit.ru//jsPDF/libs/png_support/png.js"></script>
+    <script src="https://cdn.uriit.ru//jsPDF/jspdf.js"></script>
+    <script src="http://research.ng-london.org.uk/ng/js/jsPDF/jspdf.plugin.addimage.js"></script>
+    <script src="https://cdn.uriit.ru/jsPDF/jspdf.plugin.png_support.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.2/js/tableexport.min.js"></script>
+    
+
+
+
+
+    
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAraWsgOdgoNgdg8SNPjUVqrn0btceMq5c",
+            authDomain: "scribeadmin-8952f.firebaseapp.com",
+            databaseURL: "https://scribeadmin-8952f.firebaseio.com",
+            projectId: "scribeadmin-8952f",
+            storageBucket: "scribeadmin-8952f.appspot.com",
+            messagingSenderId: "436243616900"
+          };
+          firebase.initializeApp(config);
+        </script>
+    <!-- endbuild -->
+</body>
+</html>

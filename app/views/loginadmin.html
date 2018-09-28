@@ -1,0 +1,48 @@
+<!-- <div class="bgLogin"></div> -->
+<div class="header">
+	<div class="show-list hidden"></div>
+	<img src="images/scribe-logo.svg" alt="">
+</div>
+<div class="content-wrapper" ng-switch="selection">
+	<div class="row login-admin">
+		<div class="col-xs-12">
+			<div ng-switch-when="login">
+				<h1>Inicia sesión</h1>
+				<div class="form-group">
+					<input type="text" class="form-control email-input general-input"  id="email" placeholder="yourname@domain.com" ng-model="email">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control pass-input general-input" id="password" ng-model="password">
+				</div>
+				<h1 class="text-danger enter hidden">Ingrese correo eléctronico</h1>
+				<div class="red-btn disabled" ng-click="accessAdmin()">Accesar</div>
+				<!-- 		<div class="form-check squaredFour">
+						<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" ng-click="checking()" value="None" id="squaredFour" name="check" >
+						</label>
+						<span class="textCheck">Recordar contraseña</span>
+				</div> -->
+				<div class="forgot">
+					<p ng-click="changeView('forgot-password')">¿Olvido su contraseña?<span class="ico-help" ng-click="changeView('forgot-password')"></span></p>
+				</div>
+			</div>
+			<div ng-switch-when="forgot-password">
+				<h1>Cambio de contraseña</h1>
+				<div class="form-group">
+					<input type="text" id="email2" class="form-control email-input general-input" placeholder="yourname@domain.com">
+					<h1 class="text-danger email-forgot hidden">Ingrese correo eléctronico</h1>
+				</div>
+				<div class="red-btn" ng-click="sendPass()" id="send-button">Enviar solicitud</div>
+				<div class="red-btn" ng-click="changeView('login')">Cancelar</div>
+			</div>
+			<div ng-switch-when="send">
+				<h1 class="marginT70">¡Solicitud enviada!</h1>
+				<h1 class="send-mail">En breve recibirás  un correo con los nuevos datos.</h1>
+				<div class="red-btn disabled" ng-click="returnLogin()">Regresar</div>
+			</div>
+		</div>
+	</div>
+	<div class="termins center login">
+		<a target="_blank" href="http://www.scribe.com.mx/aviso-de-privacidad/" >© Terminos y condiciones</a>
+	</div>
+</div>

@@ -1,0 +1,142 @@
+<div class="full-overlay hidden">
+    <div class="wrapper-load">
+        <p class="action-upload">Cargando</p>
+        <img src="images/loading.svg" alt="" class="center-block rotate">
+        <span class="porcent-upload">0%</span>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="collection-modal" tabindex="-1" role="dialog" aria-labelledby="collection-modalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title text-center" id="collection-modalLabel">Colecciones</h3>
+                <h4 class="text-center">Elige la colección de libretas que deseas ver</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="collection-wrapper col-sm-4 col-xs-6" data-ng-repeat="collection in pruebasArray" data-ng-click="selectCollection(collection.id_collection,$event)">
+                        <img data-ng-src="{{collection.coverUrl}}" alt="">
+                        <h1>{{collection.name}}</h1>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-switch="selection">
+    <div class="header resized">
+        <div class="row">
+            <div class="btn show-list" ng-click="changeView('preferences');toggleHeaderBtn('.btn-back, .prefers-title, .img-logo');"></div>
+            <div class="btn show-filter"  onclick=" $('#collection-modal').modal('show')"></div>
+            <div class="btn btn-back hidden" ng-click="changeView('content');toggleHeaderBtn('.show-list, .show-filter, .prefers-title, .img-logo')"></div>
+            <div class="btn btn-back-white hidden" ng-click="changeView('content');toggleHeaderBtn('.show-list, .show-filter');changeContainer();"></div>
+            <span class="prefers-title hidden">Preferencias</span>
+        <img src="images/scribe-logo.svg" class="img-logo" alt=""> </div>
+    </div>
+    <div class="content-wrapper section" ng-switch-when="content">
+        <div class="square">
+            <div class="content">
+                <!--   <div class="row">
+                    <div class="col-xs-12"> -->
+                        <!-- start padding container -->
+                        <!-- <div class="wrap"> -->
+                        <!-- start jtinder container -->
+                        <div class="finish-step hidden">
+                            <div class="row finish">
+                                <div class="col-xs-12">
+                                    <div class="main-cover">
+                                        <img src="images/Group.png" alt="">
+                                    </div>
+                                    <h1>¿Qué desea hacer?</h1>
+                                    <div class="col-sm-6">
+                                        <a data-ng-click="viewOtherCollection()"><div class="red-btn btn-finish">Ver otra colección</div></a>
+                                    </div>
+                                   <div class="col-sm-6">
+                                       <a href="#/main"><div class="red-btn btn-finish">Terminar</div></a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="swipe-wrapper" >
+                            <ul>
+                                <li class="pane pane1"
+                                    data-coleccion="{{notebooks.collectionId}}"
+                                    data-id="{{notebooks.id}}"
+                                    data-nombre="{{notebooks.name}}"
+                                    data-imagen="{{notebooks.coverSource}}"
+                                    data-like="{{notebooks.likes}}"
+                                    data-dislike="{{notebooks.dislike}}"
+                                    data-likedToFemale="{{notebooks.likedToFemale}}"
+                                    data-likedToMale="{{notebooks.likedToMale}}"
+                                    data-userAgeA="{{notebooks.userAgeA}}"
+                                    data-userAgeB="{{notebooks.userAgeB}}"
+                                    data-ng-repeat="notebooks in collectionNotebooks | orderBy : 'name'"
+                                    my-repeat-directive>
+                                    <div class="img-wrapper">
+                                        <img ng-src="{{notebooks.coverSource}}" alt="">
+                                    </div>
+                                    <p class="slide-name">{{notebooks.name}}</p>
+                                    <div class="like"></div>
+                                    <div class="dislike"></div>
+                                   <!--  <div class="like-count">
+                                        <div class="counter">{{notebooks.like}}</div>
+                                        <div class="like-btn"></div>
+                                    </div> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end jtinder container -->
+                        <!-- </div> -->
+                        <!-- end padding container -->
+                        <!-- jTinder trigger by buttons  -->
+                        
+                        <div class="actions">
+                            <div class="btn reload-btn" data-ng-click="undoSelection()"></div> <!-- <a href="#" class="dislike"><i></i></a> <a href="#" class="like"><i></i></a> -->
+                            <!--  <div class="btn menu-btn" ></div> -->
+                        </div>
+                        <!-- jTinder status text  -->
+                        <div id="status hidden"></div>
+                    <!-- </div>
+                </div> -->
+            </div>
+        </div>
+        
+    </div>
+    <div class="preferences-wrapper section" ng-switch-when="preferences">
+        <div class="preferences-control">
+            <div class="btn like-control active" ng-click="fillPreferencesList('like');togglePreferencesList($event);">LIKES</div>
+            <div class="btn dislike-control" ng-click="fillPreferencesList('dislike');togglePreferencesList($event);">DISLIKES</div>
+        </div>
+        <div class="list-wrapper">
+            
+        </div>
+    </div>
+    <div class="detail-wrapper section" ng-switch-when="detail">
+        <div class="row bgBlack">
+            <div class="btn btn-back-white" ng-click="changeView('content');toggleHeaderBtn('.show-list, .show-filter');changeContainer();"></div>
+            <div class="btn btn-share-white"></div>
+            <div class="like card-text"></div>
+            <div class="dislike card-text"></div>
+            <div class="col-xs-12">
+                <div class="img-wrapper"> <img src="#" class="img-responsive" alt="" id="img-detail" width="100%;"> </div>
+            </div>
+        </div>
+        <div class="row bgWhite description">
+            <div class="col-xs-6 title-note">Black</div>
+            <div class="col-xs-6">
+                <div class="like-btn"></div>
+                <p class="counterLikes">200</p>
+            </div>
+            <div class="col-xs-12">
+                <p class="descriptionNote">Para ti que haces m&aacute;s que estudiar.<br>Si eres de los que utilizan las &uacute;ltimas p&aacute;ginas
+                de su cuaderno para escribir todo lo que haces ruido en tu cabeza, Black es para ti. </p>
+            </div>
+            <div class="col-xs-12">
+                <div class="detail-button"> <a href="" ng-click="showAction('dislike')" class="btn-dislike"><i></i></a> <a href="" ng-click="showAction('like')" class="btn-like"><i></i></a> </div>
+            </div>
+        </div>
+    </div>
+</div>

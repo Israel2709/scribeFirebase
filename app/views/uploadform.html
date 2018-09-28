@@ -1,0 +1,89 @@
+<div class="full-overlay hidden">
+	<img src="images/preloader.gif" alt="" class="center-block">
+</div>
+<div class="header resized">
+	<div class="row">
+		<div class="btn btn-back-white hidden" ng-click="changeView('content');toggleHeaderBtn('.show-list');changeContainer();"></div>
+	<img src="images/scribe-logo.svg" class="img-logo" alt=""> </div>
+</div>
+<div class="row">
+	<div class="upload-form-wrapper">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active" data-ng-click="toggleTabContent('#upload-collection');"><a   role="tab" data-toggle="tab" >Dar de alta nueva colección</a></li>
+			<li data-ng-click="toggleTabContent('#upload-notebook');" role="presentation"><a   role="tab" data-toggle="tab" >Dar de alta nueva libreta</a></li>
+		</ul>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="upload-collection">
+				<h1 class="col-sm-12">Cargar colección</h1>
+				<form>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" class="form-control" id="nombre" placeholder="Nombre" data-ng-model="collection.name" style="text-transform:lowercase">
+						</div>
+					</div>
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="form-group">
+							<span class="btn btn-success fileinput-button">
+								<i class="glyphicon glyphicon-plus"></i>
+								<span>Agrega la imagen de colección</span>
+								<input type="file" name="files" id="picture" multiple onchange="angular.element(this).scope().readURL(this)">
+							</span>
+							<img id="img_prev3" src="#" alt="your image"  class="hidden"/>
+						</div>
+					</div>
+				
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-default" data-ng-click="uploadCollection()">Cargar</button>
+					</div>
+				</form>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="upload-notebook">
+				<h1 class="col-sm-12">Cargar Libreta</h1>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="collection">Colección</label>
+						<select id="collection" class="form-control" data-ng-model="selectedCollection" data-ng-change="setCollectionId();">
+							<option data-ng-repeat="collection in collectionsList" value="{{collection.id}}">{{collection.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="nombre">Nombre:</label>
+						<input type="text" class="form-control" id="nombre" placeholder="Nombre" data-ng-model="notebookObject.name">
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="descripcion">Descripción:</label>
+						<input type="text" class="form-control" id="descripcion" placeholder="descripcion" data-ng-model="notebookObject.descripcion">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<span class="btn btn-success fileinput-button">
+							<i class="glyphicon glyphicon-plus"></i>
+							<span>Agrega la imagen de portada</span>
+							<input id="fileupload" type="file" name="files[]" multiple onchange="angular.element(this).scope().readURL(this)">
+						</span>
+						<img id="img_prev" src="#" alt="your image"  class="hidden img-prev"/>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<span class="btn btn-success fileinput-button">
+							<i class="glyphicon glyphicon-plus"></i>
+							<span>Agrega la imagen del detalle</span>
+							<input id="fileupload2" type="file" name="files[]" multiple onchange="angular.element(this).scope().readURL(this)">
+						</span>
+						<img id="img_prev2" src="#" alt="your image"  class="hidden img-prev"/>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-default" data-ng-click="uploadNotebook()">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

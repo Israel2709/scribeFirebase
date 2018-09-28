@@ -1,0 +1,31 @@
+<div class="row profile">
+    <div class="col-xs-12">
+        <div class="header">
+            <div class="show-list hidden"></div>
+            <img src="images/scribe-logo.svg" alt="">
+        </div>
+        <div class="content-wrapper genero">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="main-cover">
+                        <h1>Seleccona tu perfil y edad</h1>
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <img src="images/card-men.svg" alt="" data-genero="H">
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="images/card-woman.svg" alt="" data-genero="M">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <input type="number" class="center-block age-input" placeholder="¿Cual es tu edad?" ng-keyup="readAge(edad)" ng-model="edad">
+                    <a class="privacy-link" target="_blank" href="http://www.scribe.com.mx/aviso-de-privacidad/">Consulta nuestro aviso de privacidad</a>
+                    <a ng-click="sendDataUser(this);"><div class="red-btn" >Continuar</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

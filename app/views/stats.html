@@ -1,0 +1,169 @@
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-1 col-sm-2">
+			<div class="menu-box">
+				<div class="icon-box">
+					<img src="images/scribe-logo.svg" class="img-logo" alt="">
+				</div>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="#/admin">
+							<span class="ico collect"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#/stats">
+							<span class="ico stat"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#/config">
+							<span class="ico settings"></span>
+						</a>
+					</li>
+				</ul>
+				<div class="exit-box">
+					<a class="nav-link" href="#/loginAdmin">
+						<span class="exit"></span>
+					</a>
+					<div class="termins admin-link">
+						<a target="_blank" href="http://www.scribe.com.mx/aviso-de-privacidad/" >© Terminos y condiciones</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-11 col-sm-10">
+			<div class="stats-wrapper section">
+				<div class="row marginL0">
+					<div class="col-md-3 col-sm-5 paddingLess">
+						<p class="title-admin">Estadísticas</p>
+					</div>
+					<div class="col-sm-7  col-md-offset-2 ">
+						<button type="button" class="btn btn-red export black" disabled="true" ng-click="exportToExcel()">
+						<span class="fill"></span>
+						Exportar a Excel</button>
+						<button type="button" class="btn btn-red export black margin-r10" disabled="true" ng-click="exportToPDF()">
+						<span class="fill"></span>
+						Exportar a PDF</button>
+					</div> 
+				</div>
+				<div class="row marginL0">
+					<p class="light-text no-marginB">ADMINISTRACIÓN DE ESTADÍSTICAS</p>
+				</div>
+				<div class="row marginL0">
+					<div class="col-md-4 col-sm-8 paddingLess marginT20">
+						<select class="selectpicker general-input capitalize"  ng-change="setCollection(selections)" ng-model="selections">
+							<option class="selected">Elige la colección para ver las estadisticas</option>
+							<option data-ng-repeat="collection in collectionsList"  value="{{collection.id_collection}}">{{collection.name}}</option>
+						</select>
+					</div>
+					<div id="Imprimeaqui">
+						<div class="heading col-sm-12">
+							<p class="text-stat">Selecciona tu colección para poder ver los valores de cada libreta.</p>
+							<span class="select"></span>
+						</div>
+						<div class="col-sm-12">
+							<div class="list-black">
+								<div class="panel panel-default" ng-repeat="x in black">
+									<div class="panel-body" id="{{x}}" >
+										<div class="row">
+											<div class="col-sm-3">
+												<img src="images/black_notes.png" alt="" >
+												<div class="pruebas"></div>
+											</div>
+											<div class="col-sm-3">
+												<span class="ico gender">Género</span>
+												<canvas id="gender-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#AAC1EC', '#F8BD97']" chart-data="[40, 60]" chart-labels="['Hombres', 'Mujeres']"></canvas>
+											</div>
+											<div class="col-sm-3">
+												<span class="ico ages">Edades</span>
+												<canvas id="age-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#E4D6F9','#DBF3C2']" chart-data="[40, 60]" chart-labels="['17-20', '21-27']"></canvas>
+											</div>
+											<div class="col-sm-3">
+												<span class="ico likes-icon">Likes</span>
+												<canvas id="like-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#A7F0E0','#E77F8C']" chart-data="[40, 60]" chart-labels="labels"></canvas>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="list-stats" >
+								<div class="panel panel-default" data-ng-repeat="notebooks in collectionNotebooks | orderBy : 'name'" data-coleccion="{{notebooks.collection}}" data-id="{{notebooks.id}}" data-nombre="{{notebooks.name}}">
+									<div class="panel-body" >
+										<div class="row">
+											<div class="col-sm-3">
+												<img data-ng-src="{{notebooks.coverSource}}" alt="">
+											</div>
+											<div class="col-sm-3">
+												<span class="ico gender">Género</span>
+												<canvas id="gender-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#AAC1EC', '#F8BD97']" chart-data="notebooks.dataGender" chart-labels="['Hombres', 'Mujeres']"></canvas>
+												<p><span class="border-Male">{{(notebooks.likedToMale * 100 / (notebooks.likedToFemale + notebooks.likedToMale) | number:0)}}%</span><span class="detail"> Hombres</span></p>
+												<p><span class="border-Female">{{(notebooks.likedToFemale * 100 / (notebooks.likedToFemale + notebooks.likedToMale) | number:0)}}%</span><span class="detail"> Mujeres</span></p>
+											</div>
+											<div class="col-sm-3">
+												<span class="ico ages">Edades</span>
+												<canvas id="age-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#E4D6F9','#DBF3C2']" chart-data="notebooks.dataAges" chart-labels="['17-20', '21-27']"></canvas>
+												<p><span class="border-ageA">{{(notebooks.userAgeA * 100 / (notebooks.userAgeA + notebooks.userAgeB) | number:0)}}%</span><span class="detail"> 16 - 20</span></p>
+												<p><span class="border-ageB">{{(notebooks.userAgeB * 100 / (notebooks.userAgeA + notebooks.userAgeB) | number:0)}}%</span><span class="detail"> 21 - 40</span></p>
+											</div>
+											<div class="col-sm-3">
+												<span class="ico likes-icon">Likes</span>
+												<canvas id="like-chart-{{notebooks.id}}" class="chart chart-doughnut" chart-colors="['#A7F0E0','#E77F8C']" chart-data="notebooks.dataLikes" chart-labels="labels"></canvas>
+												<p><span class="border-Like">{{(notebooks.likes * 100 / (notebooks.likes + notebooks.dislike) | number:0)}}%</span><span class="detail"> Likes</span></p>
+												<p><span class="border-Dislike">{{(notebooks.dislike * 100 / (notebooks.likes + notebooks.dislike) | number:0)}}%</span><span class="detail"> Dislikes</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="editor"></div>
+							<div id="dvData" class="hidden">
+								<p>Colección <span class="title"></span></p>
+								<table class="lol">
+									<colgroup>
+							            <col width="20%">
+							                <col width="20%">
+							                    <col width="20%">
+							                        <col width="20%">
+							        </colgroup>
+									<thead>
+										<tr>
+											<th><b>Colección</b></th>
+											<th><b class="title"></b></th>
+										</tr>
+										<tr>
+											<th colspan="2">Libreta</th>
+											<th colspan="2">Genero</th>
+											<th colspan="2">Edades</th>
+											<th colspan="2">Likes</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2"></td>
+											<td>Hombre</td>
+											<td>Mujer</td>
+											<td>17-20</td>
+											<td>21-27</td>
+											<td>Likes</td>
+											<td>Dislikes</td>
+										</tr>
+										<tr data-ng-repeat="notebooks in collectionNotebooks">
+											<td colspan="2">{{notebooks.name}}</td>
+											<td>{{(notebooks.likedToMale * 100 / (notebooks.likedToFemale + notebooks.likedToMale) | number:0)}}%</td>
+											<td>{{(notebooks.likedToFemale * 100 / (notebooks.likedToFemale + notebooks.likedToMale) | number:0)}}%</td>
+											<td>{{(notebooks.userAgeA * 100 / (notebooks.userAgeA + notebooks.userAgeB) | number:0)}}%</td>
+											<td>{{(notebooks.userAgeB * 100 / (notebooks.userAgeA + notebooks.userAgeB) | number:0)}}%</td>
+											<td>{{(notebooks.like * 100 / (notebooks.like + notebooks.dislike) | number:0)}}%</td>
+											<td>{{(notebooks.dislike * 100 / (notebooks.like + notebooks.dislike) | number:0)}}%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
